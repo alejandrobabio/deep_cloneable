@@ -52,7 +52,9 @@ class ActiveRecord::Base
             conditions_or_deep_associations.delete_if {|entry| conditions.merge!(entry) if entry.is_a?(Hash) && (entry.key?(:if) || entry.key?(:unless)) }
           end
 
-          dup_options = conditions_or_deep_associations.blank? ? {} : {:include => conditions_or_deep_associations}
+          dup_options = options.clone
+          dup_options.delete_if {|k,_| [:include, :except, :only, :dictionary].include? k}
+          dup_options.merge!(:include => conditions_or_deep_associations) if conditions_or_deep_associations.present?
           dup_options.merge!(:except => deep_exceptions[association]) if deep_exceptions[association]
           dup_options.merge!(:only => deep_onlinesses[association]) if deep_onlinesses[association]
           dup_options.merge!(:dictionary => dict) if dict
