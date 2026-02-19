@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [3.2.2] - 2026-02-19
+
+### Changed
+
+- Bump uri dependency to 1.0.3 to address CVE-2025-27221
+
 ### Removed
 
 - Removed EOL ruby versions from test build

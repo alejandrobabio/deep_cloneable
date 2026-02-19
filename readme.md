@@ -14,7 +14,7 @@ This gem gives every ActiveRecord::Base object the possibility to do a deep clon
 - Add deep_cloneable to your Gemfile:
 
 ```ruby
-gem 'deep_cloneable', '~> 3.2.1'
+gem 'deep_cloneable', '~> 3.2.2'
 ```
 
 ## Upgrade details
@@ -255,4 +255,4 @@ pirate.deep_clone include: [:parrot, :rum], skip_missing_associations: true
 
 ### Copyright
 
-Copyright &copy; 2025 Reinier de Lange. See LICENSE for details.
+Copyright &copy; 2026 Reinier de Lange. See LICENSE for details.
