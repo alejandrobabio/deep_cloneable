@@ -65,7 +65,8 @@ module DeepCloneable
             end
           end
 
-          dup_options = {}
+          dup_options = options.clone
+          dup_options.delete_if {|k,_| [:include, :except, :only, :dictionary].include? k}
           dup_options[:include] = conditions_or_deep_associations if conditions_or_deep_associations.present?
           dup_options[:except] = deep_exceptions[association] if deep_exceptions[association]
           dup_options[:only] = deep_onlinesses[association] if deep_onlinesses[association]
